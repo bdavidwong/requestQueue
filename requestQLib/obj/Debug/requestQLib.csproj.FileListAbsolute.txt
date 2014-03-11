@@ -1,0 +1,5 @@
+C:\Temp\RequestQWeb\requestQLib\bin\Debug\requestQLib.dll
+C:\Temp\RequestQWeb\requestQLib\bin\Debug\requestQLib.pdb
+C:\Temp\RequestQWeb\requestQLib\obj\Debug\requestQLib.dll
+C:\Temp\RequestQWeb\requestQLib\obj\Debug\requestQLib.pdb
+C:\Temp\RequestQWeb\requestQLib\obj\Debug\requestQLib.csprojResolveAssemblyReference.cache

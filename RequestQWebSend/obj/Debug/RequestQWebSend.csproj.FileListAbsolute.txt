@@ -1,0 +1,4 @@
+c:\temp\RequestQWeb\RequestQWebSend\bin\RequestQWebSend.dll
+c:\temp\RequestQWeb\RequestQWebSend\bin\RequestQWebSend.pdb
+c:\temp\RequestQWeb\RequestQWebSend\obj\Debug\RequestQWebSend.dll
+c:\temp\RequestQWeb\RequestQWebSend\obj\Debug\RequestQWebSend.pdb

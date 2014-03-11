@@ -1,0 +1,5 @@
+c:\temp\RequestQWeb\qBroker\bin\Debug\qBroker.exe.config
+c:\temp\RequestQWeb\qBroker\bin\Debug\qBroker.exe
+c:\temp\RequestQWeb\qBroker\bin\Debug\qBroker.pdb
+c:\temp\RequestQWeb\qBroker\obj\x86\Debug\qBroker.exe
+c:\temp\RequestQWeb\qBroker\obj\x86\Debug\qBroker.pdb

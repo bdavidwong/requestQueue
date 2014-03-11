@@ -1,0 +1,4 @@
+c:\temp\RequestQWeb\qWorkPrintBatch\bin\Debug\qWorkPrintBatch.exe
+c:\temp\RequestQWeb\qWorkPrintBatch\bin\Debug\qWorkPrintBatch.pdb
+c:\temp\RequestQWeb\qWorkPrintBatch\obj\x86\Debug\qWorkPrintBatch.exe
+c:\temp\RequestQWeb\qWorkPrintBatch\obj\x86\Debug\qWorkPrintBatch.pdb
