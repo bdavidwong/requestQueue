@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Messaging;
 using System.Data;
+using RequestQ.requestQLib;
 
 namespace RequestQWebSend
 {
@@ -16,22 +17,18 @@ namespace RequestQWebSend
         MessageQueue helpRequestQueue = new MessageQueue(queueName, false);
         MessageQueue helpRequestQueueJ = new MessageQueue(queueNameJ, false);
 
+        private QManager qManager = new QManager();
+
         protected void Page_Load(object sender, EventArgs e)
         {
-           
+            QueueConfig qconfig = new QueueConfig(System.Configuration.ConfigurationSettings.AppSettings);
+            qManager.LoadQueues(qconfig);
+
+
         }
 
         protected void btnSend_OnClick(object sender, EventArgs e)
-        {
-            bool isTransactionalQueue = false;
-            if (!System.Messaging.MessageQueue.Exists(queueName))
-            {
-                System.Messaging.MessageQueue.Create(queueName, isTransactionalQueue);
-            }
-            
-            if (!helpRequestQueue.UseJournalQueue)
-                helpRequestQueue.UseJournalQueue = true;
-
+        {            
             SendMessage();
             GetAllMessages(); 
         }
@@ -50,9 +47,7 @@ namespace RequestQWebSend
             if (ddlPriority.SelectedValue == "3")//File Validation
                 theMessage.Priority = System.Messaging.MessagePriority.Low;
 
-            //doesn't work
-            helpRequestQueue.Send(theMessage);    
-
+            qManager.QueueRequest.Send(theMessage);
             //helpRequestQueue.Send(theMessage, MessageQueueTransactionType.Automatic);
             //or
             //helpRequestQueue.Send(theMessage, MessageQueueTransactionType.Single);
@@ -60,9 +55,11 @@ namespace RequestQWebSend
 
         private void GetAllMessages()
         {
+            QItemsStatus qStatus = new QItemsStatus(qManager);
+
             DataTable messageTable = new DataTable();
             messageTable.Columns.Add("Label");
-            messageTable.Columns.Add("Body");
+            //messageTable.Columns.Add("Body");
             messageTable.Columns.Add("Status");
             messageTable.Columns.Add("Date Time");
 
@@ -73,32 +70,37 @@ namespace RequestQWebSend
             //filter.Label = true;
             //filter.Priority = true;
             //helpRequestQueue.MessageReadPropertyFilter = filter;
-            helpRequestQueue.MessageReadPropertyFilter.SetAll();
-            helpRequestQueueJ.MessageReadPropertyFilter.SetAll();
+            //helpRequestQueue.MessageReadPropertyFilter.SetAll();
+            //helpRequestQueueJ.MessageReadPropertyFilter.SetAll();
 
+            List<ReqMessageStatus> list = qStatus.GetStatus().ToList();
             //Get All Messages    
-            System.Messaging.Message[] messages = helpRequestQueue.GetAllMessages();
-            System.Messaging.XmlMessageFormatter stringFormatter = new System.Messaging.XmlMessageFormatter(new string[] { "System.String" });
+            //System.Messaging.Message[] messages = helpRequestQueue.GetAllMessages();
+            //System.Messaging.XmlMessageFormatter stringFormatter = new System.Messaging.XmlMessageFormatter(new string[] { "System.String" });
 
-
-            for (int index = 0; index < messages.Length; index++)
+            for (int index = 0; index < list.Count(); index++)
             {
-                string test = System.Convert.ToString(messages[index].Priority);
-                messages[index].Formatter = stringFormatter;
-                messageTable.Rows.Add(new string[] { messages[index].Label, messages[index].Body.ToString(), "New", messages[index].ArrivedTime.ToShortTimeString() });
-
+                messageTable.Rows.Add(new string[] { list[index].Label, //list[index].Body.ToString(), 
+                    list[index].Status, list[index].DateTime });
             }
+            //for (int index = 0; index < messages.Length; index++)
+            //{
+            //    string test = System.Convert.ToString(messages[index].Priority);
+            //    messages[index].Formatter = stringFormatter;
+            //    messageTable.Rows.Add(new string[] { messages[index].Label, messages[index].Body.ToString(), "New", messages[index].ArrivedTime.ToShortTimeString() });
 
-            //Get All Messages    
-            messages = helpRequestQueueJ.GetAllMessages();
+            //}
+
+            ////Get All Messages    
+            //messages = helpRequestQueueJ.GetAllMessages();
             
-            for (int index = 0; index < messages.Length; index++)
-            {
-                string test = System.Convert.ToString(messages[index].Priority);
-                messages[index].Formatter = stringFormatter;
-                messageTable.Rows.Add(new string[] { messages[index].Label, messages[index].Body.ToString(), "Processed", messages[index].SentTime.ToShortTimeString() });
+            //for (int index = 0; index < messages.Length; index++)
+            //{
+            //    string test = System.Convert.ToString(messages[index].Priority);
+            //    messages[index].Formatter = stringFormatter;
+            //    messageTable.Rows.Add(new string[] { messages[index].Label, messages[index].Body.ToString(), "Processed", messages[index].SentTime.ToShortTimeString() });
 
-            }
+            //}
 
             Gridview1.DataSource = messageTable;
             Gridview1.DataBind();

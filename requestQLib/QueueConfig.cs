@@ -10,16 +10,23 @@ namespace RequestQ.requestQLib
 {
     public class QueueConfig
     {
+        private string _queueName;
+        private string _queueFileProcess;
+        private string _queuePrintBatch;
+        private string _queueFileValidation;
+        private string _queueRequest;
+        private string _queueOut;
+
         public NameValueCollection values { get; private set; }
         public QueueConfig(NameValueCollection AppSettings)
         {
                 values = AppSettings;
-                queueName = AppSettings[AppSettings["queueName"].ToString()].ToString();
-                queueFileProcess = AppSettings["queueFileProcess"].ToString();
-                queuePrintBatch = AppSettings["queuePrintBatch"].ToString();
-                queueFileValidation = AppSettings["queueFileValidation"].ToString();
-                queueRequest = AppSettings["queueRequest"].ToString();
-                queueOut = AppSettings["queueOut"].ToString();
+                _queueName = AppSettings[AppSettings["queueName"].ToString()].ToString();
+                _queueFileProcess = AppSettings["queueFileProcess"].ToString();
+                _queuePrintBatch = AppSettings["queuePrintBatch"].ToString();
+                _queueFileValidation = AppSettings["queueFileValidation"].ToString();
+                _queueRequest = AppSettings["queueRequest"].ToString();
+                _queueOut = AppSettings["queueOut"].ToString();
 
             //foreach (string key in AppSettings)
             //{
@@ -40,24 +47,24 @@ namespace RequestQ.requestQLib
         public string GetQueueName(QueueType qType)
         {
             if (qType == QueueType.FileProcessQueue)
-                return "queueFileProcess";
+                return values["queueFileProcess"].ToString();//"queueFileProcess";
             if (qType == QueueType.PrintBatchQueue)
-                return "queuePrintBatch";
+                return values["queuePrintBatch"].ToString();//"queuePrintBatch";
             if (qType == QueueType.ValidationQueue)
-                return "queueFileValidation";
+                return values["queueFileValidation"].ToString();//"queueFileValidation";
             if (qType == QueueType.QueueOut)
-                return "queueOut";
+                return values["queueOut"].ToString();//"queueOut";
             if (qType == QueueType.RequestQueue)
-                return "queueRequest";
+                return values["queueRequest"].ToString();//"queueRequest";
             else
                 return string.Empty;
 
         }
-        public string queueName { get; set; }
-        public string queueFileProcess { get; set; }
-        public string queuePrintBatch { get; set; }
-        public string queueFileValidation { get; set; }
-        public string queueRequest { get; set; }
-        public string queueOut { get; set; }
+        public string queueName { get { return _queueName; } set { _queueName = value; } }
+        public string queueFileProcess { get { return _queueFileProcess; } set { _queueFileProcess = value; } }
+        public string queuePrintBatch { get { return _queuePrintBatch; } set { _queuePrintBatch = value; } }
+        public string queueFileValidation { get { return _queueFileValidation; } set { _queueFileValidation = value; } }
+        public string queueRequest { get { return _queueRequest; } set { _queueRequest = value; } }
+        public string queueOut { get { return _queueOut; } set { _queueOut = value; } }
     }
 }

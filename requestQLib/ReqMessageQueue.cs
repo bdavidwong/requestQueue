@@ -18,18 +18,18 @@ namespace RequestQ.requestQLib
         }
         
         private void inital()
-        { 
-        bool isTransactionalQueue = false;
-
+        {   bool isTransactionalQueue = false;
+            MessageReadPropertyFilter.SetAll();
+            
             if (!System.Messaging.MessageQueue.Exists(qPath))
             {
                 System.Messaging.MessageQueue.Create(qPath, isTransactionalQueue);
             }
 
-            if (!UseJournalQueue)
-                UseJournalQueue = true;
+            //if (!UseJournalQueue)
+            //    UseJournalQueue = true;
 
-            MessageReadPropertyFilter.SetAll();
+            
         }
 
         public QueueType ReqQueueType { get { return qType; } internal set {qType = value;} }

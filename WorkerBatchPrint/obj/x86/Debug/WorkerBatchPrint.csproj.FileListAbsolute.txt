@@ -6,3 +6,11 @@ C:\Temp\RequestQWeb\WorkerBatchPrint\bin\Debug\requestQLib.pdb
 C:\Temp\RequestQWeb\WorkerBatchPrint\obj\x86\Debug\WorkerBatchPrint.csprojResolveAssemblyReference.cache
 C:\Temp\RequestQWeb\WorkerBatchPrint\obj\x86\Debug\WorkerBatchPrint.exe
 C:\Temp\RequestQWeb\WorkerBatchPrint\obj\x86\Debug\WorkerBatchPrint.pdb
+C:\Users\alien\Documents\GitHub\requestQueue\WorkerBatchPrint\bin\Debug\WorkerBatchPrint.exe.config
+C:\Users\alien\Documents\GitHub\requestQueue\WorkerBatchPrint\bin\Debug\WorkerBatchPrint.exe
+C:\Users\alien\Documents\GitHub\requestQueue\WorkerBatchPrint\bin\Debug\WorkerBatchPrint.pdb
+C:\Users\alien\Documents\GitHub\requestQueue\WorkerBatchPrint\bin\Debug\requestQLib.dll
+C:\Users\alien\Documents\GitHub\requestQueue\WorkerBatchPrint\bin\Debug\requestQLib.pdb
+C:\Users\alien\Documents\GitHub\requestQueue\WorkerBatchPrint\obj\x86\Debug\WorkerBatchPrint.csprojResolveAssemblyReference.cache
+C:\Users\alien\Documents\GitHub\requestQueue\WorkerBatchPrint\obj\x86\Debug\WorkerBatchPrint.exe
+C:\Users\alien\Documents\GitHub\requestQueue\WorkerBatchPrint\obj\x86\Debug\WorkerBatchPrint.pdb

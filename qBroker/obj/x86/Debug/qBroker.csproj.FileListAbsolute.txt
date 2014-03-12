@@ -3,3 +3,8 @@ c:\temp\RequestQWeb\qBroker\bin\Debug\qBroker.exe
 c:\temp\RequestQWeb\qBroker\bin\Debug\qBroker.pdb
 c:\temp\RequestQWeb\qBroker\obj\x86\Debug\qBroker.exe
 c:\temp\RequestQWeb\qBroker\obj\x86\Debug\qBroker.pdb
+C:\Users\alien\Documents\GitHub\requestQueue\qBroker\bin\Debug\qBroker.exe.config
+C:\Users\alien\Documents\GitHub\requestQueue\qBroker\bin\Debug\qBroker.exe
+C:\Users\alien\Documents\GitHub\requestQueue\qBroker\bin\Debug\qBroker.pdb
+C:\Users\alien\Documents\GitHub\requestQueue\qBroker\obj\x86\Debug\qBroker.exe
+C:\Users\alien\Documents\GitHub\requestQueue\qBroker\obj\x86\Debug\qBroker.pdb

@@ -3,3 +3,7 @@ C:\Temp\RequestQWeb\requestQLib\bin\Debug\requestQLib.pdb
 C:\Temp\RequestQWeb\requestQLib\obj\Debug\requestQLib.dll
 C:\Temp\RequestQWeb\requestQLib\obj\Debug\requestQLib.pdb
 C:\Temp\RequestQWeb\requestQLib\obj\Debug\requestQLib.csprojResolveAssemblyReference.cache
+C:\Users\alien\Documents\GitHub\requestQueue\requestQLib\bin\Debug\requestQLib.dll
+C:\Users\alien\Documents\GitHub\requestQueue\requestQLib\bin\Debug\requestQLib.pdb
+C:\Users\alien\Documents\GitHub\requestQueue\requestQLib\obj\Debug\requestQLib.dll
+C:\Users\alien\Documents\GitHub\requestQueue\requestQLib\obj\Debug\requestQLib.pdb
