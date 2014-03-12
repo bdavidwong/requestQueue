@@ -18,7 +18,7 @@ namespace RequestQ.requestQLib
         [Description("Print Batch Queue")]
         PrintBatchQueue = 2,
 
-        [Description("Print Batch Queue")]
+        [Description("File Validation")]
         ValidationQueue = 3,
     
          [Description("Queue Output")]

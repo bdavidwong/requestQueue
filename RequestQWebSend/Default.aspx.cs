@@ -35,22 +35,21 @@ namespace RequestQWebSend
 
         private void SendMessage()
         {
-            System.Messaging.Message theMessage = new System.Messaging.Message(ddlPriority.SelectedValue + " Request Message Q. TimeNow is " + DateTime.Now.ToString());
-           // theMessage.Formatter = new XmlMessageFormatter();
-
-            theMessage.Label = ddlPriority.SelectedValue + " ReqQ " + DateTime.Now.ToString();
-
-            if (ddlPriority.SelectedValue == "1") //FileProcess
-                theMessage.Priority = System.Messaging.MessagePriority.Normal;
-            if (ddlPriority.SelectedValue == "2")//Print Batch
-                theMessage.Priority = System.Messaging.MessagePriority.High;
-            if (ddlPriority.SelectedValue == "3")//File Validation
-                theMessage.Priority = System.Messaging.MessagePriority.Low;
-
+            QueueType qType = (QueueType)Enum.Parse(typeof(QueueType), ddlPriority.SelectedValue);
+            MessageCreater mgeCreater = new MessageCreater("this is the body text");
+            Message theMessage = mgeCreater.CreateMeesage(qType);
             qManager.QueueRequest.Send(theMessage);
-            //helpRequestQueue.Send(theMessage, MessageQueueTransactionType.Automatic);
-            //or
-            //helpRequestQueue.Send(theMessage, MessageQueueTransactionType.Single);
+            
+            //System.Messaging.Message theMessage = new System.Messaging.Message(ddlPriority.SelectedValue + " Request Message Q. TimeNow is " + DateTime.Now.ToString());            
+            //theMessage.Label = ddlPriority.SelectedValue + " ReqQ " + DateTime.Now.ToString();
+            //if (ddlPriority.SelectedValue == "1") //FileProcess
+            //    theMessage.Priority = System.Messaging.MessagePriority.Normal;
+            //if (ddlPriority.SelectedValue == "2")//Print Batch
+            //    theMessage.Priority = System.Messaging.MessagePriority.High;
+            //if (ddlPriority.SelectedValue == "3")//File Validation
+            //    theMessage.Priority = System.Messaging.MessagePriority.Low;
+
+            //helpRequestQueue.Send(theMessage);  
         }
 
         private void GetAllMessages()

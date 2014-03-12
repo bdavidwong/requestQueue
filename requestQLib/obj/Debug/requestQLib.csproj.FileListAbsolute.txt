@@ -7,3 +7,7 @@ C:\Users\alien\Documents\GitHub\requestQueue\requestQLib\bin\Debug\requestQLib.d
 C:\Users\alien\Documents\GitHub\requestQueue\requestQLib\bin\Debug\requestQLib.pdb
 C:\Users\alien\Documents\GitHub\requestQueue\requestQLib\obj\Debug\requestQLib.dll
 C:\Users\alien\Documents\GitHub\requestQueue\requestQLib\obj\Debug\requestQLib.pdb
+C:\Users\wongb\Documents\GitHub\requestQueue\requestQLib\bin\Debug\requestQLib.dll
+C:\Users\wongb\Documents\GitHub\requestQueue\requestQLib\bin\Debug\requestQLib.pdb
+C:\Users\wongb\Documents\GitHub\requestQueue\requestQLib\obj\Debug\requestQLib.dll
+C:\Users\wongb\Documents\GitHub\requestQueue\requestQLib\obj\Debug\requestQLib.pdb

@@ -9,3 +9,10 @@ C:\Users\alien\Documents\GitHub\requestQueue\RequestQWebSend\bin\requestQLib.pdb
 C:\Users\alien\Documents\GitHub\requestQueue\RequestQWebSend\obj\Debug\RequestQWebSend.csprojResolveAssemblyReference.cache
 C:\Users\alien\Documents\GitHub\requestQueue\RequestQWebSend\obj\Debug\RequestQWebSend.dll
 C:\Users\alien\Documents\GitHub\requestQueue\RequestQWebSend\obj\Debug\RequestQWebSend.pdb
+C:\Users\wongb\Documents\GitHub\requestQueue\RequestQWebSend\bin\RequestQWebSend.dll
+C:\Users\wongb\Documents\GitHub\requestQueue\RequestQWebSend\bin\RequestQWebSend.pdb
+C:\Users\wongb\Documents\GitHub\requestQueue\RequestQWebSend\bin\requestQLib.dll
+C:\Users\wongb\Documents\GitHub\requestQueue\RequestQWebSend\bin\requestQLib.pdb
+C:\Users\wongb\Documents\GitHub\requestQueue\RequestQWebSend\obj\Debug\RequestQWebSend.csprojResolveAssemblyReference.cache
+C:\Users\wongb\Documents\GitHub\requestQueue\RequestQWebSend\obj\Debug\RequestQWebSend.dll
+C:\Users\wongb\Documents\GitHub\requestQueue\RequestQWebSend\obj\Debug\RequestQWebSend.pdb

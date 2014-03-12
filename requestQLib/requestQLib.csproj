@@ -41,6 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="MessageCreater.cs" />
     <Compile Include="QItemsStatus.cs" />
     <Compile Include="QManager.cs" />
     <Compile Include="QueueConfig.cs" />
