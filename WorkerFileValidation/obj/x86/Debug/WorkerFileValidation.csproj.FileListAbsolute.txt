@@ -1,0 +1,8 @@
+C:\Users\alien\Documents\GitHub\requestQueue\WorkerFileValidation\bin\Debug\WorkerFileValidation.exe.config
+C:\Users\alien\Documents\GitHub\requestQueue\WorkerFileValidation\bin\Debug\WorkerFileValidation.exe
+C:\Users\alien\Documents\GitHub\requestQueue\WorkerFileValidation\bin\Debug\WorkerFileValidation.pdb
+C:\Users\alien\Documents\GitHub\requestQueue\WorkerFileValidation\bin\Debug\requestQLib.dll
+C:\Users\alien\Documents\GitHub\requestQueue\WorkerFileValidation\bin\Debug\requestQLib.pdb
+C:\Users\alien\Documents\GitHub\requestQueue\WorkerFileValidation\obj\x86\Debug\WorkerFileValidation.csprojResolveAssemblyReference.cache
+C:\Users\alien\Documents\GitHub\requestQueue\WorkerFileValidation\obj\x86\Debug\WorkerFileValidation.exe
+C:\Users\alien\Documents\GitHub\requestQueue\WorkerFileValidation\obj\x86\Debug\WorkerFileValidation.pdb

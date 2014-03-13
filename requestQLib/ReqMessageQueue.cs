@@ -23,13 +23,10 @@ namespace RequestQ.requestQLib
             
             if (!System.Messaging.MessageQueue.Exists(qPath))
             {
-                System.Messaging.MessageQueue.Create(qPath, isTransactionalQueue);
+                MessageQueue q = System.Messaging.MessageQueue.Create(qPath, isTransactionalQueue);
+                q.UseJournalQueue = true;
             }
-
-            //if (!UseJournalQueue)
-            //    UseJournalQueue = true;
-
-            
+                        
         }
 
         public QueueType ReqQueueType { get { return qType; } internal set {qType = value;} }

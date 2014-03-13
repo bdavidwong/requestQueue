@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Messaging;
 using System.Configuration;
+using System.Threading;
 
 namespace qBroker
 {
@@ -76,25 +77,41 @@ namespace qBroker
 
         public void ProcessMessage()
         {
-            var ts = new TimeSpan(0, 0, 10);
-            //MessageQueue q = GetQueue<T>();
-            while (true)
+            WaitHandle[] waitHandleArray = new WaitHandle[10];
+            RequestQueue.ReceiveCompleted += new ReceiveCompletedEventHandler(MyReceiveCompleted);
+            for (int i = 0; i < 10; i++)
             {
-                try
-                {
-                    Message msg = RequestQueue.Receive(ts);
-                    //var t = (T)msg.Body;
-                    RoutingMessage(msg);
-                }
-                catch (MessageQueueException e)
-                {
-                    //This code for sleep current thread for 20 second.
-                    System.Threading.Thread.Sleep(20000);
-                    // Test to see if this was just a timeout.
-                    // If it was, just continue, there were no msgs waiting
-                    // If it wasn't, something horrible may have happened
-                }
+                // Begin asynchronous operations.
+                waitHandleArray[i] =
+                    RequestQueue.BeginReceive().AsyncWaitHandle;
             }
+            WaitHandle.WaitAll(waitHandleArray);
+                       
+        }
+
+        private void MyReceiveCompleted(Object source,
+           ReceiveCompletedEventArgs asyncResult)
+        {
+            try
+            {
+                // Connect to the queue.
+                MessageQueue mq = (MessageQueue)source;
+
+                // End the asynchronous receive operation.
+                Message m = mq.EndReceive(asyncResult.AsyncResult);
+                RoutingMessage(m);
+                // Process the message here.
+                Console.WriteLine("Message received.");
+
+            }
+            catch (MessageQueueException)
+            {
+                // Handle sources of MessageQueueException.
+            }
+
+            // Handle other exceptions. 
+
+            return;
         }
 
         private void RoutingMessage(Message msg)
@@ -104,15 +121,15 @@ namespace qBroker
             {
                 //Message msg = RequestQueue.Receive();
                 if (strPri == "1")//(msg.Priority == MessagePriority.Normal)
-                    ReqQueueFileProcess.Send(msg, MessageQueueTransactionType.Single);
-
-                if (strPri == "2")//(msg.Priority == MessagePriority.High)
-                    ReqQueuePrintBatch.Send(msg, MessageQueueTransactionType.Single);
-
-                if (strPri == "3")//(msg.Priority == MessagePriority.Low)
-                    ReqQueueFileValidation.Send(msg, MessageQueueTransactionType.Single);
+                    ReqQueueFileProcess.Send(msg);
                 else
-                    ReqQueueFileProcess.Send(msg, MessageQueueTransactionType.Single);
+                if (strPri == "2")//(msg.Priority == MessagePriority.High)
+                    ReqQueuePrintBatch.Send(msg);
+                else
+                if (strPri == "3")//(msg.Priority == MessagePriority.Low)
+                    ReqQueueFileValidation.Send(msg);
+                else
+                    ReqQueueFileProcess.Send(msg);
 
             }
         }

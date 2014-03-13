@@ -1,0 +1,8 @@
+C:\Users\alien\Documents\GitHub\requestQueue\WorkerOut\bin\Debug\WorkerOut.exe.config
+C:\Users\alien\Documents\GitHub\requestQueue\WorkerOut\bin\Debug\WorkerOut.exe
+C:\Users\alien\Documents\GitHub\requestQueue\WorkerOut\bin\Debug\WorkerOut.pdb
+C:\Users\alien\Documents\GitHub\requestQueue\WorkerOut\bin\Debug\requestQLib.dll
+C:\Users\alien\Documents\GitHub\requestQueue\WorkerOut\bin\Debug\requestQLib.pdb
+C:\Users\alien\Documents\GitHub\requestQueue\WorkerOut\obj\x86\Debug\WorkerOut.csprojResolveAssemblyReference.cache
+C:\Users\alien\Documents\GitHub\requestQueue\WorkerOut\obj\x86\Debug\WorkerOut.exe
+C:\Users\alien\Documents\GitHub\requestQueue\WorkerOut\obj\x86\Debug\WorkerOut.pdb
