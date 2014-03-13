@@ -46,6 +46,12 @@ namespace RequestQ.requestQLib
             return messages.Union<Message>(messagesj).ToList();
         }
 
+        public IList<Message> GeJournals(QueueType qType)
+        {
+            ReqMessageQueue q = new ReqMessageQueueJournal(qConfiguration.GetQueueName(qType));
+            return q.GetAllMessages().ToList<Message>();
+        }
+
         public IList<Message> GetMessages(QueueType qType)
         {
             ReqMessageQueue q = new ReqMessageQueue(qConfiguration.GetQueueName(qType));

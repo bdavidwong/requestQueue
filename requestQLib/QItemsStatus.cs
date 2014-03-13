@@ -101,7 +101,7 @@ namespace RequestQ.requestQLib
                                                        DateTime = (o == null ? item1.DateTime : o.SentTime.ToString("yyyy/MM/dd HH:mm:ss"))
                                                    });
 
-            IList<Message> list7 = qmanager.GetMessages(QueueType.QueueOut);
+            IList<Message> list7 = qmanager.GeJournals(QueueType.QueueOut);
             IEnumerable<ReqMessageStatus> qCompletedOut = (from item1 in qCompletedQ
                                                          join item2 in list7
                                                          on item1.Label equals item2.Label into g
@@ -111,7 +111,7 @@ namespace RequestQ.requestQLib
                                                              ID = item1.ID,
                                                              Label = item1.Label,
                                                              Body = string.Empty,
-                                                             Status = (o == null ? "Requested item is completed" : item1.Status),
+                                                             Status = (o == null ? item1.Status : "Requested item is completed"),
                                                              DateTime = (o == null ? item1.DateTime : o.SentTime.ToString("yyyy/MM/dd HH:mm:ss"))
                                                          });
 
