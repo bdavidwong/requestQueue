@@ -6,3 +6,11 @@ C:\Users\alien\Documents\GitHub\requestQueue\WorkerFileProcess\bin\Debug\request
 C:\Users\alien\Documents\GitHub\requestQueue\WorkerFileProcess\obj\x86\Debug\WorkerFileProcess.csprojResolveAssemblyReference.cache
 C:\Users\alien\Documents\GitHub\requestQueue\WorkerFileProcess\obj\x86\Debug\WorkerFileProcess.exe
 C:\Users\alien\Documents\GitHub\requestQueue\WorkerFileProcess\obj\x86\Debug\WorkerFileProcess.pdb
+C:\Users\wongb\Documents\GitHub\requestQueue\WorkerFileProcess\bin\Debug\WorkerFileProcess.exe.config
+C:\Users\wongb\Documents\GitHub\requestQueue\WorkerFileProcess\bin\Debug\WorkerFileProcess.exe
+C:\Users\wongb\Documents\GitHub\requestQueue\WorkerFileProcess\bin\Debug\WorkerFileProcess.pdb
+C:\Users\wongb\Documents\GitHub\requestQueue\WorkerFileProcess\bin\Debug\requestQLib.dll
+C:\Users\wongb\Documents\GitHub\requestQueue\WorkerFileProcess\bin\Debug\requestQLib.pdb
+C:\Users\wongb\Documents\GitHub\requestQueue\WorkerFileProcess\obj\x86\Debug\WorkerFileProcess.csprojResolveAssemblyReference.cache
+C:\Users\wongb\Documents\GitHub\requestQueue\WorkerFileProcess\obj\x86\Debug\WorkerFileProcess.exe
+C:\Users\wongb\Documents\GitHub\requestQueue\WorkerFileProcess\obj\x86\Debug\WorkerFileProcess.pdb

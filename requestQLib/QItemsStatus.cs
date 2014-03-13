@@ -35,8 +35,11 @@ namespace RequestQ.requestQLib
                                    join item2 in list2
                                    on item1.Label equals item2.Label into g
                                    from o in g.DefaultIfEmpty()
-                                   select new ReqMessageStatus { ID = item1.Id, Label = item1.Label, 
-                                       Body = string.Empty, Status = (o == null ? "New" : "In FileProcess Queue"), DateTime = (o == null ? item1.ArrivedTime.ToShortTimeString() : o.SentTime.ToShortTimeString()) });
+                                   select new ReqMessageStatus { ID = item1.Id, Label = item1.Label,
+                                                                 Body = string.Empty,
+                                                                 Status = (o == null ? "New" : "In FileProcess Queue"),
+                                                                 DateTime = (o == null ? item1.ArrivedTime.ToString("yyyy/MM/dd HH:mm:ss") : o.SentTime.ToString("yyyy/MM/dd HH:mm:ss"))
+                                   });
 
             IEnumerable<Message> list3 = qmanager.GetMessages(QueueType.PrintBatchQueue);
 
@@ -50,7 +53,7 @@ namespace RequestQ.requestQLib
                                                              Label = item1.Label,
                                                              Body = string.Empty,
                                                              Status = (o == null ? item1.Status : "In PrintBatch Queue"),
-                                                             DateTime = (o == null ? item1.DateTime : o.SentTime.ToShortTimeString())
+                                                             DateTime = (o == null ? item1.DateTime : o.SentTime.ToString("yyyy/MM/dd HH:mm:ss"))
                                                          });
                         
             IList<Message> list4 = qmanager.GetMessages(QueueType.ValidationQueue);
@@ -65,7 +68,7 @@ namespace RequestQ.requestQLib
                                                                    Label = item1.Label,
                                                                    Body = string.Empty,
                                                                    Status = (o == null ? item1.Status : "In Validation Queue"),
-                                                                   DateTime = (o == null ? item1.DateTime : o.SentTime.ToShortTimeString())
+                                                                   DateTime = (o == null ? item1.DateTime : o.SentTime.ToString("yyyy/MM/dd HH:mm:ss"))
                                                                });
 
             IList<Message> list5= qmanager.GetMessages(QueueType.QueueOut);
@@ -80,10 +83,10 @@ namespace RequestQ.requestQLib
                                                        Label = item1.Label,
                                                        Body = string.Empty,
                                                        Status = (o == null ? item1.Status : "In Queue delivery"),
-                                                       DateTime = (o == null ? item1.DateTime : o.SentTime.ToShortTimeString())
+                                                       DateTime = (o == null ? item1.DateTime : o.SentTime.ToString("yyyy/MM/dd HH:mm:ss"))
                                                    });
 
-            IList<Message> list6 = qmanager.GetMessagesAndJournal(QueueType.QueueOut);
+            IList<Message> list6 = qmanager.GetMessages(QueueType.QueueOut);
 
             IEnumerable<ReqMessageStatus> qCompletedQ = (from item1 in qOutQ
                                                    join item2 in list6
@@ -94,10 +97,25 @@ namespace RequestQ.requestQLib
                                                        ID = item1.ID,
                                                        Label = item1.Label,
                                                        Body = string.Empty,
-                                                       Status = (o == null ? item1.Status : "Completed Requested Item"),
-                                                       DateTime = (o == null ? item1.DateTime : o.SentTime.ToShortTimeString())
+                                                       Status = (o == null ? item1.Status : "Ready to delivery"),
+                                                       DateTime = (o == null ? item1.DateTime : o.SentTime.ToString("yyyy/MM/dd HH:mm:ss"))
                                                    });
-            return qCompletedQ;
+
+            IList<Message> list7 = qmanager.GetMessages(QueueType.QueueOut);
+            IEnumerable<ReqMessageStatus> qCompletedOut = (from item1 in qCompletedQ
+                                                         join item2 in list7
+                                                         on item1.Label equals item2.Label into g
+                                                         from o in g.DefaultIfEmpty()
+                                                         select new ReqMessageStatus
+                                                         {
+                                                             ID = item1.ID,
+                                                             Label = item1.Label,
+                                                             Body = string.Empty,
+                                                             Status = (o == null ? "Requested item is completed" : item1.Status),
+                                                             DateTime = (o == null ? item1.DateTime : o.SentTime.ToString("yyyy/MM/dd HH:mm:ss"))
+                                                         });
+
+            return qCompletedOut;
         }
     }
 }
